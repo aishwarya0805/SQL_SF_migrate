@@ -1,0 +1,44 @@
+version: 2
+
+models:
+    - name: my_first_dbt_model
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+
+    - name: my_second_dbt_model
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+    
+    - name: trial_sql_sf 
+      description: "Migrate data from my SQL to SF using DBT"
+      columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: name
+            tests:
+              - not_null
+          - name: email
+            tests:
+              - not_null
+          - name: created_at
+            tests:
+              - not_null
+    
+sources:
+  - name: public
+    database: Aish_SQL_SF       # your Snowflake database
+    schema: PUBLIC              # schema where table lives
+    tables:
+      - name: customers

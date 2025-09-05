@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: customer 
+    database: aish_sql_sf 
+    schema: Public
+    tables:
+      - name: customers 
+        description: "Raw orders data from the operational system."
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: name
+            tests:
+              - not_null
+          - name: email
+            tests:
+              - not_null
+          - name: created_at
+            tests:
+              - not_null

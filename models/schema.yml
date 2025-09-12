@@ -35,6 +35,10 @@ models:
           - name: created_at
             tests:
               - not_null
+          - name: updated_at
+            tests:
+              - not_null
+        
     
 sources:
   - name: public
